@@ -1,0 +1,84 @@
+script(src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js')
+
+pre.hljs
+  code
+    :highlight(lang='golo')
+      .slide
+        .header I'm the title!
+        p I am a paragraph
+
+br
+br
+
+#chartContainer
+  canvas#myChart
+
+br
+br
+
+script.
+  window.pngData = false
+  var canvas = document.getElementById("myChart")
+  var container = document.getElementById("chartContainer")
+  function onComplete() {
+    window.pngData = canvas.toDataURL();
+  }
+  var config= {
+    type: 'polarArea',
+    data: {
+      datasets: [{
+          data: [20, 30, 20, 30, 50],
+          backgroundColor: [ "#FF6384AA", "#4BC0C0AA", "#FFCE56AA", "#E7E9EDAA", "#36A2EBAA"],
+          label: 'My dataset' // for legend
+      }],
+      labels: ["Bibliography", "Research", "Redaction", "Format title slide",
+               "Doesn't compile"]
+    },
+    options: {
+      devicePixelRatio: 1,
+      legend: {
+        position: 'bottom'
+      },
+      scale: {
+        ticks: {
+            suggestedMax: 60,
+            stepSize: 20
+        }
+      }
+    }
+  };
+  config.options.animation = {duration: 0, onComplete: onComplete}
+  if (config.options.width) {
+    canvas.style.width = config.options.width
+    container.style.width = config.options.width
+  }
+  if (config.options.height) {
+    canvas.style.height = config.options.height
+    container.style.height = config.options.height
+  }
+  var ctx = document.getElementById("myChart").getContext('2d');
+  var myChart = new Chart(ctx, config)
+
+h1#title Hello World
+
+p Some paragraph
+
+table.table
+  tr
+    th ID
+    th First Name
+    th Last Name
+  <% User.all.each do |user| %>
+    tr
+      td <%= user.id %>
+      td <%= user.first_name %>
+      td <%= user.last_name %>
+  <% end %>
+
+
+img(src="<%= Rails.root%>/app/pdf/assets/report_screenshot.png" width="300px")
+
+p Some other paragraph
+
+:markdown-it(html=true)
+  Hello **world** is here.

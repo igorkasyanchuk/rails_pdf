@@ -11,15 +11,35 @@ class BetterTempfile < Tempfile
   end
 end
 
+def PDFPugRender
+
+  def initialize(template)
+    @files = []
+  end
+
+  def render
+    ApplicationController.render file: "/#{Rails.root}/app/pdf/report.pug.erb",
+    layout: "application.pug.erb",
+    locals: {
+      renderer: self
+    }
+  end
+
+  def inline
+
+  end
+
+end
+
 class HomeController < ApplicationController
   def index
   end
 
   def report
-    result = ApplicationController.render file: "/#{Rails.root}/app/pdf/index.pug.erb", 
+    result = ApplicationController.render file: "/#{Rails.root}/app/pdf/report.pug.erb",
       layout: "application.pug.erb"
 
-    Rails.logger.info "Result: #{result}"
+    Rails.logger.info "Result:\n\n#{result}"
     Rails.logger.info "====="
 
     begin
@@ -29,7 +49,9 @@ class HomeController < ApplicationController
       input.write(result)
       input.flush
 
+      #command = "relaxed #{input.path.to_s} #{output.path.to_s} --basedir #{Rails.root}/app/pdf/ --build-once"
       command = "relaxed #{input.path.to_s} #{output.path.to_s} --basedir / --build-once"
+      #command = "relaxed #{input.path.to_s} #{output.path.to_s} --build-once"
 
       Rails.logger.info "=== #{command}"
 
@@ -38,9 +60,15 @@ class HomeController < ApplicationController
         puts '------'
         stderr.read
       end
-      send_file output.path.to_s, type: 'application/pdf', disposition: 'inline', filename: 'report.pdf'
+
+      output.rewind
+      output.binmode
+      data = output.read
+
+      send_data data, type: 'application/pdf', disposition: 'inline', filename: 'report.pdf'
     ensure
-      input.close!
+      input&.close!
+      output&.close!
     end
   end
 end

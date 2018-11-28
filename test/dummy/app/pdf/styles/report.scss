@@ -1,0 +1,33 @@
+@import 'https://fonts.googleapis.com/css?family=PT+Sans';
+@import 'https://fonts.googleapis.com/css?family=Amatic+SC';
+@import 'https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.min.css';
+@import 'https://cdn.jsdelivr.net/gh/isagalaev/highlight.js@cf4b46e5b7acfe2626a07914e1d0d4ef269aed4a/src/styles/monokai.css';
+@import 'https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css';
+
+$primary_color: #b4588c;
+
+$page_width: 210mm;
+$page_height: 297mm;
+
+@page {
+  size: $page_width $page_height;
+  -relaxed-page-width: $page_width;
+  -relaxed-page-height: $page_height;
+  margin: 0.5in;
+}
+
+html {
+  background: white;
+  font-size: 14px !important;
+}
+
+body {
+  display: grid;
+  grid-gap: 1.2in;
+  grid-template-columns: 60px 60px;  
+}
+
+#title {
+  font-weight: bold;
+  font-size: 2.5em;
+}
