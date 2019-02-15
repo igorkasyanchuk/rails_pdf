@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css?family=Londrina+Solid|Pacifico');
+
+$page-width: 3.5in;
+$page-height: 3.5in;
+
+@page {
+  size: $page-width $page-height;
+  -relaxed-page-width: $page-width;
+  -relaxed-page-height: $page-height;
+}
+
+body {
+  color: black;
+  background: white;
+  font-family: 'Londrina Solid', cursive;
+  margin: 0;
+  padding: 0;
+}
+
+div.page {
+  position: relative;
+  width: $page_width;
+  height: $page_height;
+  overflow: hidden;
+  padding: 0.1in;
+  &.active {
+    background: red;
+    color: white;
+  }
+
+  &.second {
+    background-image: linear-gradient(to top right, black 0%, #8b8bff  100%);
+    color: white;
+  }
+}
+
+div#title {
+  color: white;
+  font-size: 42px;
+}
+
+ul#features {
+  position: relative;
+  z-index: 100;
+  background: #3f51b5;
+  margin-top: 30px;
+  width: 50%;
+  border: 6px solid white;
+  padding: 10px;
+
+  li {
+    padding-left: 5px;
+    list-style-type: disc;
+  }
+}
+
+div#box {
+  left: 30%;
+  width: 60%;
+  top: 30%;
+  height: 60%;
+  border: 6px solid yellow;
+  position: absolute;
+}
+
+div#about {
+  font-family: Pacifico;
+}

@@ -1,4 +1,4 @@
-script(src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js')
+script(src='<%= Rails.root%>/app/pdf/javascripts/Chart.bundle.min.js')
 
 pre.hljs
   code
@@ -9,6 +9,11 @@ pre.hljs
 
 br
 br
+
+style(lang="css")
+  :scss
+    #myChart {
+    }
 
 #chartContainer
   canvas#myChart
@@ -39,25 +44,31 @@ script.
       legend: {
         position: 'bottom'
       },
+      deferred: {
+    	   xOffset: 150, 
+    	   delay: 250
+       },
       scale: {
         ticks: {
-            suggestedMax: 60,
-            stepSize: 20
+          suggestedMax: 60,
+          stepSize: 20
         }
       }
     }
   };
-  config.options.animation = {duration: 0, onComplete: onComplete}
+  config.options.animation = {duration: 0, onComplete: onComplete};
   if (config.options.width) {
-    canvas.style.width = config.options.width
-    container.style.width = config.options.width
+    canvas.style.width = config.options.width;
+    container.style.width = config.options.width;
   }
   if (config.options.height) {
-    canvas.style.height = config.options.height
-    container.style.height = config.options.height
+    canvas.style.height = config.options.height;
+    container.style.height = config.options.height;
   }
-  var ctx = document.getElementById("myChart").getContext('2d');
-  var myChart = new Chart(ctx, config)
+  setTimeout(function() {
+    var ctx = document.getElementById("myChart").getContext('2d');
+    var myChart = new Chart(ctx, config);
+  }, 300);
 
 h1#title Hello World
 

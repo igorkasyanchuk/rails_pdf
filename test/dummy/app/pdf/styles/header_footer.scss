@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css?family=Londrina+Solid|Pacifico');
+
+$page-width: 5in;
+$page-height: 7in;
+
+@page {
+  size: $page-width $page-height;
+  -relaxed-page-width: $page-width;
+  -relaxed-page-height: $page-height;
+  margin: 0.5in 0.2in;
+}
+
+body {
+  color: black;
+  background: white;
+  font-family: 'Londrina Solid', cursive;
+  margin: 0;
+  padding: 0;
+}
+
+p {
+  font-family: 'Pacifico';
+  font-size: 12px;
+}
+
+strong {
+  color: red;
+}

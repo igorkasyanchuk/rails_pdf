@@ -17,6 +17,7 @@
 #static
   .content
     include <%= Rails.root%>/app/pdf/static.pug
+    | Привет как дела!?
 
 template#page-footer
   style(type='text/css').
@@ -26,7 +27,7 @@ template#page-footer
       font-family: Helvetica;
       margin-left: 10%;
       margin-right: 10%;
-      text-align: right;
+      text-align: center;
       width: 90%;
     }
   div Page #[span.pageNumber] / #[span.totalPages]

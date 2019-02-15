@@ -1,15 +1,4 @@
 require 'open3'
-require 'tempfile'
-
-class BetterTempfile < Tempfile
-  # ensures the Tempfile's filename always keeps its extension
-  def initialize(filename, temp_dir = nil)
-    temp_dir ||= Dir.tmpdir
-    extension = File.extname(filename)
-    basename  = File.basename(filename, extension)
-    super([basename, extension], temp_dir)
-  end
-end
 
 def PDFPugRender
 
@@ -19,10 +8,10 @@ def PDFPugRender
 
   def render
     ApplicationController.render file: "/#{Rails.root}/app/pdf/report.pug.erb",
-    layout: "application.pug.erb",
-    locals: {
-      renderer: self
-    }
+      layout: "application.pug.erb",
+      locals: {
+        renderer: self
+      }
   end
 
   def inline
@@ -36,8 +25,8 @@ class HomeController < ApplicationController
   end
 
   def report
-    result = ApplicationController.render file: "/#{Rails.root}/app/pdf/report.pug.erb",
-      layout: "application.pug.erb"
+    #result = ApplicationController.render file: "/#{Rails.root}/app/pdf/presentation.pug.erb", layout: "application.pug.erb"
+    result = ApplicationController.render file: "/#{Rails.root}/app/pdf/header_footer.pug.erb", layout: "application.pug.erb"
 
     Rails.logger.info "Result:\n\n#{result}"
     Rails.logger.info "====="
@@ -50,7 +39,7 @@ class HomeController < ApplicationController
       input.flush
 
       #command = "relaxed #{input.path.to_s} #{output.path.to_s} --basedir #{Rails.root}/app/pdf/ --build-once"
-      command = "relaxed #{input.path.to_s} #{output.path.to_s} --basedir / --build-once"
+      command = "/usr/bin/relaxed #{input.path.to_s} #{output.path.to_s} --basedir / --build-once"
       #command = "relaxed #{input.path.to_s} #{output.path.to_s} --build-once"
 
       Rails.logger.info "=== #{command}"
