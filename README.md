@@ -8,6 +8,10 @@ How to use my plugin.
 
 - Install https://github.com/RelaxedJS/ReLaXed
 
+>git clone https://github.com/RelaxedJS/ReLaXed.git .
+>npm install
+>sudo npm link --unsafe-perm=true
+
 Add this line to your application's Gemfile:
 
 ```ruby
