@@ -26,7 +26,7 @@ class HomeController < ApplicationController
 
   def report
     #result = ApplicationController.render file: "/#{Rails.root}/app/pdf/presentation.pug.erb", layout: "application.pug.erb"
-    result = ApplicationController.render file: "/#{Rails.root}/app/pdf/header_footer.pug.erb", layout: "application.pug.erb"
+    result = ApplicationController.render file: "/#{Rails.root}/app/pdf/invoice2.pug.erb", layout: "application.pug.erb"
 
     Rails.logger.info "Result:\n\n#{result}"
     Rails.logger.info "====="
