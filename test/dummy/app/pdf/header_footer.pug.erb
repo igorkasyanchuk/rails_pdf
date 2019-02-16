@@ -1,8 +1,13 @@
-h1 This is sample document
+style
+  include:scss <%= Rails.root%>/app/pdf/stylesheets/header_footer.scss
+
+div.title
+  h1 This is sample document
+  img(src="<%= Rails.root%>/app/pdf/images/rails.jpg")
 
 p 
-  strong Lorem ipsum &nbsp;
-  | dolor sit amet, consectetur adipiscing elit. Suspendisse pellentesque odio nec metus consectetur volutpat. Nam vestibulum a elit in tristique. In blandit mauris metus, ut cursus nunc fringilla vitae. Mauris malesuada tellus sit amet justo pulvinar, eget mollis ligula ornare. Nam odio purus, posuere a nibh vel, feugiat convallis lorem. Ut suscipit a augue et bibendum. Interdum et malesuada fames ac ante ipsum primis in faucibus. Vivamus in finibus justo. Fusce sed tristique lorem, id pulvinar neque.
+  strong Lorem ipsum
+  |  dolor sit amet, consectetur adipiscing elit. Suspendisse pellentesque odio nec metus consectetur volutpat. Nam vestibulum a elit in tristique. In blandit mauris metus, ut cursus nunc fringilla vitae. Mauris malesuada tellus sit amet justo pulvinar, eget mollis ligula ornare. Nam odio purus, posuere a nibh vel, feugiat convallis lorem. Ut suscipit a augue et bibendum. Interdum et malesuada fames ac ante ipsum primis in faucibus. Vivamus in finibus justo. Fusce sed tristique lorem, id pulvinar neque.
 p Integer convallis lobortis magna, non molestie felis vestibulum sit amet. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Mauris placerat vehicula rhoncus. Nunc ullamcorper tincidunt sem non blandit. Fusce felis turpis, posuere non quam et, vehicula pulvinar dolor. Nulla lectus sem, vehicula sed porta quis, facilisis vitae dolor. Quisque commodo nibh sit amet efficitur iaculis. Aenean elementum et sem fringilla cursus. Sed eros diam, aliquam a interdum ac, ultricies sed dui. Pellentesque fermentum neque vitae dui tincidunt feugiat. Vivamus ac interdum tortor. Quisque id efficitur sem, in ultrices lacus. Integer cursus ac ipsum placerat hendrerit. Phasellus laoreet velit leo, vel tincidunt odio iaculis eget. Pellentesque tincidunt congue velit nec rhoncus.
 p Vestibulum augue magna, volutpat a libero eu, congue ultricies libero. Vivamus eu viverra purus, non sodales augue. Nam vehicula tortor id fringilla finibus. Aliquam ac interdum mauris. Praesent cursus id ipsum eu lacinia. Quisque vel volutpat lorem. Etiam mattis, sem nec vulputate semper, tellus nibh lobortis justo, vel dignissim quam ipsum eu velit. In porta ac augue at finibus. Sed vel cursus magna, vitae tincidunt turpis.
 p Vestibulum augue magna, volutpat a libero eu, congue ultricies libero. Vivamus eu viverra purus, non sodales augue. Nam vehicula tortor id fringilla finibus. Aliquam ac interdum mauris. Praesent cursus id ipsum eu lacinia. Quisque vel volutpat lorem. Etiam mattis, sem nec vulputate semper, tellus nibh lobortis justo, vel dignissim quam ipsum eu velit. In porta ac augue at finibus. Sed vel cursus magna, vitae tincidunt turpis.
@@ -13,19 +18,24 @@ p Donec eget mi nisl. Integer eget aliquet ante, ac sollicitudin purus. Suspendi
 p Vestibulum augue magna, volutpat a libero eu, congue ultricies libero. Vivamus eu viverra purus, non sodales augue. Nam vehicula tortor id fringilla finibus. Aliquam ac interdum mauris. Praesent cursus id ipsum eu lacinia. Quisque vel volutpat lorem. Etiam mattis, sem nec vulputate semper, tellus nibh lobortis justo, vel dignissim quam ipsum eu velit. In porta ac augue at finibus. Sed vel cursus magna, vitae tincidunt turpis.
 p Proin aliquam justo at tristique tristique. Nunc congue augue tellus, eu ultrices massa faucibus vitae. Nulla metus mauris, volutpat a arcu ut, pharetra mollis lacus. In gravida felis vitae felis venenatis, eu malesuada massa bibendum. Donec eleifend, ante sit amet lacinia facilisis, felis tellus interdum metus, ut tincidunt tortor augue eget ipsum. Morbi semper lectus quis tortor pharetra auctor. Fusce ultrices, massa et elementum lacinia, dui ipsum condimentum felis, vitae pellentesque nisl augue ut nisi. Aenean augue velit, convallis nec elit nec, blandit elementum leo. Fusce at nunc vestibulum, mattis nibh sit amet, tempus ante. Fusce nec sem convallis, lobortis elit sed, tincidunt diam.
 
-style
-  include:scss <%= Rails.root%>/app/pdf/styles/header_footer.scss
-
 template#page-header
   style(type='text/css').
     .pdf-header {
       margin-left: 0.15in;
+      margin-right: 0.15in;
       font-family: 'Londrina Solid';
       font-size: 4px;
-      display: block;
       color: #777;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      justify-content: space-between;
+      align-items: flex-start;
+      width: 100%;
     }
-  .pdf-header >> Rails PDF Gem
+  .pdf-header
+    div.id Report #<%= rand(100_000) %>
+    div.date <%= I18n.l Date.current, format: :long %>
 
 
 template#page-footer

@@ -26,3 +26,20 @@ p {
 strong {
   color: red;
 }
+
+div.title {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: flex-start;
+
+  h1 {
+    font-size: 25px;
+    line-height: 25px;
+  }
+
+  img {
+    height: 50px;
+  }
+}
