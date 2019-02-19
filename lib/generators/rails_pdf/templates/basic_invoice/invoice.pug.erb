@@ -1,0 +1,96 @@
+link(rel="stylesheet" href="<%= Rails.root %>/app/pdf/shared/stylesheets/font-awesome/style.css")
+
+style
+  include:scss <%= Rails.root %>/app/pdf/<%= report %>/stylesheets/invoice.scss
+
+body
+  header.clearfix
+    div.container
+      figure
+        img.logo(src="<%= Rails.root %>/app/pdf/shared/images/rails_pdf.png")
+      .company-address
+        h2.title Company title
+        p
+          | 455 Foggy Heights,
+          br
+          | AZ 85004, US
+
+      .company-contact
+        .phone.left
+          i(class="fas fa-phone")
+          span.helper
+          a(href="tel:602-519-0450")   (602) 519-0450
+          span.helper
+        .email.right
+          i(class="fas fa-envelope")
+          span.helper
+          a(href="mailto:company@example.com")   company@example.com
+          span.helper
+
+  section
+    .container
+      .details.clearfix
+        .client.left
+          p INVOICE TO:
+          p.name John Doe
+          p 796 Silver Harbour, TX 79273, US
+          a(href="mailto:john@example.com") john@example.com
+        .data.right
+          .title Invoice 3-2-1
+          .date
+            | Date of Invoice: 01/06/2014
+            br/
+            | Due Date: 30/06/2014
+      table(border="0" cellpadding="0" cellspacing="0")
+        thead
+          tr
+            th.desc Description
+            th.qty Quantity
+            th.unit Unit price
+            th.total Total
+        tbody
+          tr
+            td.desc
+              h3 Website Design
+              | Creating a recognizable design solution based on the company's existing visual identity
+            td.qty 30
+            td.unit $40.00
+            td.total $1,200.00
+          tr
+            td.desc
+              h3 Website Development
+              | Developing a Content Management System-based Website
+            td.qty 80
+            td.unit $40.00
+            td.total $3,200.00
+          tr
+            td.desc
+              h3 Search Engines Optimization
+              | Optimize the site for search engines (SEO)
+            td.qty 20
+            td.unit $40.00
+            td.total $800.00
+      .no-break
+        table.grand-total
+          tbody
+            tr
+              td.desc
+              td.qty
+              td.unit SUBTOTAL:
+              td.total $5,200.00
+            tr
+              td.desc
+              td.qty
+              td.unit TAX 25%:
+              td.total $1,300.00
+            tr
+              td.desc
+              td.unit(colspan="2") GRAND TOTAL:
+              td.total $6,500.00
+  footer
+    .container
+      .thanks Thank you!
+      .notice
+        div NOTICE:
+        div A finance charge of 1.5% will be made on unpaid balances after 30 days.
+      .end Invoice was created on a computer and is valid without the signature and seal.

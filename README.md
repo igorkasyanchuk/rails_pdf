@@ -4,6 +4,8 @@ Short description and motivation.
 ## Usage
 How to use my plugin.
 
+rails g rails_pdf basic_invoice report1
+
 ## Installation
 
 - Install https://github.com/RelaxedJS/ReLaXed
