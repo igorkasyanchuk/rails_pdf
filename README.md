@@ -1,4 +1,4 @@
-# RailsPdf
+# RailsPDF
 Short description and motivation.
 
 ## Usage

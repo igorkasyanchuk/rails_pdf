@@ -1,7 +1,7 @@
 require 'test_helper'
 
-class RailsPdf::Test < ActiveSupport::TestCase
+class RailsPDF::Test < ActiveSupport::TestCase
   test "truth" do
-    assert_kind_of Module, RailsPdf
+    assert_kind_of Module, RailsPDF
   end
 end
