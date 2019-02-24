@@ -1,0 +1,273 @@
+script(src='<%= Rails.root %>/app/pdf/shared/javascripts/Chart.bundle.min.js')
+
+link(rel="stylesheet" href="<%= Rails.root %>/app/pdf/shared/stylesheets/bootstrap/bootstrap.min.css")
+
+style(lang="css")
+  :scss
+    // A4
+    $page-width: 8.27in;
+    $page-height: 11.69in;
+
+    // For printing
+    @media print {
+      .col-print-1 {
+        flex: 0 0 8.33333%;
+        max-width: 8.33333%; } }
+
+    @media print {
+      .col-print-2 {
+        flex: 0 0 16.66667%;
+        max-width: 16.66667%; } }
+
+    @media print {
+      .col-print-3 {
+        flex: 0 0 25%;
+        max-width: 25%; } }
+
+    @media print {
+      .col-print-4 {
+        flex: 0 0 33.33333%;
+        max-width: 33.33333%; } }
+
+    @media print {
+      .col-print-5 {
+        flex: 0 0 41.66667%;
+        max-width: 41.66667%; } }
+
+    @media print {
+      .col-print-6 {
+        flex: 0 0 50%;
+        max-width: 50%; } }
+
+    @media print {
+      .col-print-7 {
+        flex: 0 0 58.33333%;
+        max-width: 58.33333%; } }
+
+    @media print {
+      .col-print-8 {
+        flex: 0 0 66.66667%;
+        max-width: 66.66667%; } }
+
+    @media print {
+      .col-print-9 {
+        flex: 0 0 75%;
+        max-width: 75%; } }
+
+    @media print {
+      .col-print-10 {
+        flex: 0 0 83.33333%;
+        max-width: 83.33333%; } }
+
+    @media print {
+      .col-print-11 {
+        flex: 0 0 91.66667%;
+        max-width: 91.66667%; } }
+
+    @media print {
+      .col-print-12 {
+        flex: 0 0 100%;
+        max-width: 100%; } }
+
+    @page {
+      size: $page-width $page-height;
+      -relaxed-page-width: $page-width;
+      -relaxed-page-height: $page-height;
+      margin: 0.5in 0.2in;
+    }
+    body {
+      color: #222;
+    }
+    img.logo {
+      height: 100px;
+    }
+
+.container
+ .row
+    .col-sm-10.col-print-10
+      h1
+        span Sales Report
+        br
+        span.text-success <%= Date.current.year %>
+    .col-sm-2.col-print-2
+      img.logo.img-fluid(src="<%= Rails.root %>/app/pdf/shared/images/rails_pdf.png")
+    .col-sm-12.col-print-12
+      hr
+br
+
+.container
+  .row
+    .col-md-6.col-print-6
+      .card
+        .card-header Performance
+        .card-body
+          #chartContainer
+            canvas#componentsChart(style="width: 100%")
+    .col-md-6.col-print-6
+      .card
+        .card-header Top performers
+        .card-body
+          p List of top performers in Q4:
+          table.table.p-0.m-0
+            tbody
+              tr
+                td John Smith
+                td NY
+                td $500
+              tr
+                td Bob Smith
+                td CA
+                td $1320
+              tr
+                td Michael Smith
+                td CA
+                td.text-success $1,500
+              tr
+                td Adam Johnson
+                td CA
+                td.text-danger -$100
+
+br
+
+.container
+  .row
+    .col-md-12
+      .card
+        .card-header Sales Trends
+        .card-body
+          #salesChartContainer
+            canvas#salesChart(style="width: 100%")
+
+br
+
+.container
+  .row
+    .col-md-12
+      p.lead This is a list of 10 working graphs (bar chart, pie chart, line chart, etc.) with colors and data set up to render decent looking charts that you can copy and paste into your own projects, and quickly get going with customizing and fine-tuning to make them fit your style and purpose.
+
+div(style="page-break-before:always")
+
+.container
+  .row
+    .col-md-12
+      p.lead Our report is a list of 10 working graphs (bar chart, pie chart, line chart, etc.) with colors and data set up to render decent looking charts that you can copy and paste into your own projects, and quickly get going with customizing and fine-tuning to make them fit your style and purpose.
+
+br
+
+.container
+  .row
+    .col-md-12
+      .card
+        .card-header Distribution
+        .card-body
+          #radarChartContainer
+            canvas#radarChart(style="width: 100%")
+
+br
+
+.clearfix
+
+script.
+  var canvas = document.getElementById("componentsChart")
+  var container = document.getElementById("chartContainer")
+  var config= {
+    type: 'polarArea',
+    data: {
+      datasets: [{
+          data: [20, 30, 55],
+          backgroundColor: [ "#FF6384AA", "#4BC0C0AA", "#36A2EBAA"],
+          label: 'My dataset' // for legend
+      }],
+      labels: ["Rails", "PDF", "Gem"]
+    },
+    options: {
+      devicePixelRatio: 1,
+      legend: {
+        position: 'bottom'
+      },
+      deferred: {
+    	   xOffset: 150, 
+    	   delay: 100
+       },
+      scale: {
+        ticks: {
+          suggestedMax: 60,
+          stepSize: 20
+        }
+      }
+    }
+  };
+  if (config.options.width) {
+    canvas.style.width = config.options.width;
+    container.style.width = config.options.width;
+  }
+  if (config.options.height) {
+    canvas.style.height = config.options.height;
+    container.style.height = config.options.height;
+  }
+  var ctx = document.getElementById("componentsChart").getContext('2d');
+  var componentsChart = new Chart(ctx, config);
+
+  new Chart(document.getElementById("salesChart"), {
+    type: 'line',
+    data: {
+      labels: [1500,1600,1700,1750,1800,1850,1900,1950,1999,2050],
+      datasets: [{ 
+          data: [86,114,106,106,107,111,133,221,783,2478],
+          label: "Africa",
+          borderColor: "#3e95cd",
+          fill: false
+        }, { 
+          data: [282,350,411,502,635,809,947,1402,3700,5267],
+          label: "Asia",
+          borderColor: "#8e5ea2",
+          fill: false
+        }, { 
+          data: [168,170,178,190,203,276,408,547,675,734],
+          label: "Europe",
+          borderColor: "#3cba9f",
+          fill: false
+        }, { 
+          data: [40,20,10,16,24,38,74,167,508,784],
+          label: "Latin America",
+          borderColor: "#e8c3b9",
+          fill: false
+        }, { 
+          data: [6,3,2,2,7,26,82,172,312,433],
+          label: "North America",
+          borderColor: "#c45850",
+          fill: false
+        }
+      ]
+    },
+    options: {
+    }
+  });
+
+  new Chart(document.getElementById("radarChart"), {
+      type: 'radar',
+      data: {
+        labels: ["Africa", "Asia", "Europe", "Latin America", "North America"],
+        datasets: [
+          {
+            label: "1950",
+            fill: true,
+            backgroundColor: "rgba(179,181,198,0.2)",
+            borderColor: "rgba(179,181,198,1)",
+            pointBorderColor: "#fff",
+            pointBackgroundColor: "rgba(179,181,198,1)",
+            data: [8.77,55.61,21.69,6.62,6.82]
+          }, {
+            label: "2050",
+            fill: true,
+            backgroundColor: "rgba(255,99,132,0.2)",
+            borderColor: "rgba(255,99,132,1)",
+            pointBorderColor: "#fff",
+            pointBackgroundColor: "rgba(255,99,132,1)",
+            pointBorderColor: "#fff",
+            data: [25.48,54.16,7.61,8.06,4.45]
+          }
+        ]
+      },
+      options: { }
+  });  

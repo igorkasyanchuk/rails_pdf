@@ -8,12 +8,9 @@ end
 
 module RailsPDF
   class << self
-    def template(template_file)
-      Renderer.new.template(template_file)
-    end
-
-    def layout(template_layout)
-      Renderer.new.layout(template_layout)
-    end
+    delegate :template, :layout, to: :instance
+  end
+  def RailsPDF.instance
+    Renderer.new
   end
 end

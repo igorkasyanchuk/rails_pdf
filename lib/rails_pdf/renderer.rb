@@ -14,9 +14,10 @@ module RailsPDF
 
     def render(&block)
       content = ApplicationController.render(file: @file, layout: @layout)
-  
-      logger.debug "Content:\n\n#{content}"
-      logger.debug "====="
+
+      logger.debug "RailsPDF ====="
+      logger.debug "RailsPDF content:\n#{content}"
+      logger.debug "RailsPDF ====="
   
       begin
         input  = BetterTempfile.new("in.pug")
@@ -27,12 +28,12 @@ module RailsPDF
   
         command = "/usr/bin/relaxed #{input.path.to_s} #{output.path.to_s} --basedir / --build-once"
   
-        logger.debug "=== #{command}"
+        logger.debug "RailsPDF ===== #{command}"
   
         err = Open3.popen3(*command) do |_stdin, _stdout, stderr|
-          logger.info _stdout.read
-          logger.info '------'
-          logger.info stderr.read
+          logger.debug _stdout.read
+          logger.debug '------'
+          logger.debug stderr.read
         end
 
         output.rewind
@@ -44,6 +45,25 @@ module RailsPDF
       ensure
         input&.close!
         output&.close!
+      end
+    end
+
+    def render_to_file(path_and_filename = "report.pdf")
+      render do |data|
+        File.open(path_and_filename, 'wb') do |f|
+          f.write(data)
+          f.close
+        end
+      end
+    end
+
+    def render_to_tempfile(filename = "report.pdf")
+      render do |data|
+        file = BetterTempfile.new(filename)
+        file.binmode
+        file.write(data)
+        file.flush
+        file
       end
     end
 
