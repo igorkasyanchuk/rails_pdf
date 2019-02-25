@@ -1,12 +1,11 @@
 # RailsPDF
 
-Support HTML/ERB/CSS/SCSS/PUG/Javascript/ChartsJS/Images/SVG/Custom Fonts/etc.
+Create PDF docs in Rails app with support of HTML/ERB/CSS/SCSS/PUG/Javascript/ChartsJS/Images/SVG/Custom Fonts/etc.
 
-Basically, you can create any HTML/CSS/JS/Images page and save into PDF.
-
-With header, footer, page numbers, layout support.
-
-Has few starter templates to help with most popular reports. Just create some and re-edit it.
+- Basically, you can create any HTML/CSS/JS/Images page and save into PDF.
+- With header, footer, page numbers, layout support.
+- Generate files on the fly or save to disk/tempfiles.
+- Has few starter templates to help with most popular reports. Just create some and re-edit it.
 
 ## Template starters
 
