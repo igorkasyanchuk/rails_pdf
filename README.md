@@ -49,7 +49,7 @@ Installation of gem is very simple, it's just requires one additional step to in
 ### Requirements
 
 - RelaxedJS 0.2.0+ (check with `relaxed --version`)
-- Chrome headless ()
+- Chrome headless (bundled with relaxedjs)
 - Rails 5+ app
 
 #### Install RelaxedJS
