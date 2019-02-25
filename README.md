@@ -1,7 +1,5 @@
 # RailsPDF
 
-**Reliable way to generate PDF files of any complexity.**
-
 Support HTML/ERB/CSS/SCSS/PUG/Javascript/ChartsJS/Images/SVG/Custom Fonts/etc.
 
 Basically, you can create any HTML/CSS/JS/Images page and save into PDF.
