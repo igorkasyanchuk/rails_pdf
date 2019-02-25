@@ -9,6 +9,8 @@ Create PDF docs in Rails app with support of HTML/ERB/CSS/SCSS/PUG/Javascript/Ch
 
 ## Template starters
 
+_If you want to contribute and add more templates - it' very easy to do. See #Templates section of this doc._
+
 <table>
   <tr align="center">
     <td width="25%">
