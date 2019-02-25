@@ -1,0 +1,96 @@
+style
+  include:scss <%= Rails.root %>/app/pdf/<%= report %>/stylesheets/invoice.scss
+
+body
+  header.clearfix
+    #logo
+      img(src="<%= Rails.root %>/app/pdf/shared/images/rails_pdf.png")
+    h1 INVOICE #321
+    #company.clearfix
+      div Company Name
+      div
+        | 455 Foggy Heights,
+        br
+        | AZ 85004, US
+      div (602) 519-0450
+      div
+        a(href="mailto:company@example.com") company@example.com
+    #project
+      div
+        span PROJECT
+        | Website development
+      div
+        span CLIENT
+        | John Doe
+      div
+        span ADDRESS
+        | 796 Silver Harbour, TX 79273, US
+      div
+        span EMAIL
+        a(href="mailto:john@example.com") john@example.com
+      div
+        span DATE
+        | August 17, 2015
+      div
+        span DUE DATE
+        | September 17, 2015
+  main
+    table
+      thead
+        tr
+          th.service SERVICE
+          th.desc DESCRIPTION
+          th PRICE
+          th QTY
+          th TOTAL
+      tbody
+        tr
+          td.service Design
+          td.desc Creating a recognizable design solution based on the company's existing visual identity
+          td.unit $40.00
+          td.qty 26
+          td.total $1,040.00
+        tr
+          td.service Development
+          td.desc Developing a Content Management System-based Website
+          td.unit $40.00
+          td.qty 80
+          td.total $3,200.00
+        tr
+          td.service SEO
+          td.desc Optimize the site for search engines (SEO)
+          td.unit $40.00
+          td.qty 20
+          td.total $800.00
+        tr
+          td.service Training
+          td.desc Initial training sessions for staff responsible for uploading web content
+          td.unit $40.00
+          td.qty 4
+          td.total $160.00
+        tr
+          td(colspan="4")  SUBTOTAL
+          td.total $5,200.00
+        tr
+          td(colspan="4")  TAX 25%
+          td.total $1,300.00
+        tr
+          td.grand.total(colspan="4")  GRAND TOTAL
+          td.grand.total $6,500.00
+    #notices
+      div NOTICE:
+      .notice A finance charge of 1.5% will be made on unpaid balances after 30 days.
+
+template#page-footer
+  style(type='text/css').
+    .pdf-footer {
+      color: #5D6975;
+      width: 100%;
+      height: 30px;
+      border-top: 1px solid #C1CED9;
+      padding: 8px 0;
+      text-align: center;
+      font-size: 8px;
+    }  
+  .pdf-footer
+    | Invoice was created on a computer and is valid without the signature and seal.

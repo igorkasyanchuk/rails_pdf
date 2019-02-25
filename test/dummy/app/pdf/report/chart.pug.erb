@@ -1,74 +1,13 @@
 script(src='<%= Rails.root %>/app/pdf/shared/javascripts/Chart.bundle.min.js')
 
 link(rel="stylesheet" href="<%= Rails.root %>/app/pdf/shared/stylesheets/bootstrap/bootstrap.min.css")
+link(rel="stylesheet" href="<%= Rails.root %>/app/pdf/shared/stylesheets/bootstrap/bootstrap.print.css")
 
 style(lang="css")
   :scss
     // A4
     $page-width: 8.27in;
     $page-height: 11.69in;
-
-    // For printing
-    @media print {
-      .col-print-1 {
-        flex: 0 0 8.33333%;
-        max-width: 8.33333%; } }
-
-    @media print {
-      .col-print-2 {
-        flex: 0 0 16.66667%;
-        max-width: 16.66667%; } }
-
-    @media print {
-      .col-print-3 {
-        flex: 0 0 25%;
-        max-width: 25%; } }
-
-    @media print {
-      .col-print-4 {
-        flex: 0 0 33.33333%;
-        max-width: 33.33333%; } }
-
-    @media print {
-      .col-print-5 {
-        flex: 0 0 41.66667%;
-        max-width: 41.66667%; } }
-
-    @media print {
-      .col-print-6 {
-        flex: 0 0 50%;
-        max-width: 50%; } }
-
-    @media print {
-      .col-print-7 {
-        flex: 0 0 58.33333%;
-        max-width: 58.33333%; } }
-
-    @media print {
-      .col-print-8 {
-        flex: 0 0 66.66667%;
-        max-width: 66.66667%; } }
-
-    @media print {
-      .col-print-9 {
-        flex: 0 0 75%;
-        max-width: 75%; } }
-
-    @media print {
-      .col-print-10 {
-        flex: 0 0 83.33333%;
-        max-width: 83.33333%; } }
-
-    @media print {
-      .col-print-11 {
-        flex: 0 0 91.66667%;
-        max-width: 91.66667%; } }
-
-    @media print {
-      .col-print-12 {
-        flex: 0 0 100%;
-        max-width: 100%; } }
-
     @page {
       size: $page-width $page-height;
       -relaxed-page-width: $page-width;

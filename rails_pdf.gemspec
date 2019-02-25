@@ -9,9 +9,9 @@ Gem::Specification.new do |s|
   s.version     = RailsPDF::VERSION
   s.authors     = ["Igor Kasyanchuk"]
   s.email       = ["igorkasyanchuk@gmail.com"]
-  s.homepage    = "https://github.com"
-  s.summary     = "https://github.com"
-  s.description = "https://github.com"
+  s.homepage    = "https://github.com/igorkasyanchuk/rails_pdf"
+  s.summary     = "Reliable way to generate PDF files of any complexity."
+  s.description = "Reliable way to generate PDF files of any complexity. Support HTML/ERB/CSS/SCSS/PUG/Javascript/ChartsJS/Images/SVG/Custom Fonts/etc."
   s.license     = "MIT"
 
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.md"]

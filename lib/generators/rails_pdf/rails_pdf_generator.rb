@@ -1,7 +1,7 @@
 class RailsPdfGenerator < Rails::Generators::NamedBase
   source_root File.expand_path('templates', __dir__)
 
-  TYPES = ["basic_invoice", "chart1"]
+  TYPES = ["basic_invoice", "chart1", "simple_invoice"]
 
   def create_helper_file
     report = args[0]
@@ -23,7 +23,7 @@ class RailsPdfGenerator < Rails::Generators::NamedBase
     directory "#{file_name}", "app/pdf/#{report}"
 
     case file_name
-    when 'basic_invoice'
+    when 'basic_invoice', 'simple_invoice'
       gsub_file "app/pdf/#{report}/invoice.pug.erb", '<%= report %>', report
     when 'chart1'
       gsub_file "app/pdf/#{report}/chart.pug.erb", '<%= report %>', report

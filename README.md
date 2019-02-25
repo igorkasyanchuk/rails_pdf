@@ -1,20 +1,66 @@
 # RailsPDF
-Short description and motivation.
+
+Reliable way to generate PDF files of any complexity. Support HTML/ERB/CSS/SCSS/PUG/Javascript/ChartsJS/Images/SVG/Custom Fonts/etc.
+
+Basically, you can create any HTML/CSS/JS/Images page and save into PDF.
+
+Supports header, footer, page numbers, layouts.
+
+Has few starter templates to create most popular reports easily.
 
 ## Usage
-How to use my plugin.
 
-rails g rails_pdf basic_invoice report1
+You can use predefined starter templates (and you are welcome to contribute and create additional templates):
+
+Use template starters:
+
+- rails g rails_pdf basic_invoice report
+- rails g rails_pdf chart1 report
+- rails g rails_pdf simple_invoice report
+
+After you've generated PDF template, you can edit it in `app/pdf/.../file` file.
+
+You can use JS/CSS files from `app/pdf/shared` (which includes bootstrap 4, foundation 6, FoundAwesome5, Charts.js).
+
+This is how you can generate and send PDF files on the fly:
+
+```
+  def report
+    RailsPDF.template("report2/invoice.pug.erb").render do |data|
+      send_data(data, type: 'application/pdf', disposition: 'inline', filename: 'report.pdf')
+    end
+  end
+```
+
+If you need to create PDF file and save to file on drive:
+
+`RailsPDF.template("report/chart.pug.erb").render_to_file('x.pdf')`
+
+Same but save PDF into Temfile:
+
+`RailsPDF.template("report/chart.pug.erb").render_to_tempfile('x.pdf')`
+
+With ERB files you can use App code (like models, etc). For example you can iterate over @users and output in PDF.
 
 ## Installation
 
-- Install https://github.com/RelaxedJS/ReLaXed
+Installation of gem is very simple, it's just requires one additional step to install RelaxedJS tool which is using Chrome headless.
+
+### Requirements
+
+- RelaxedJS 0.2.0+ (check with `relaxed --version`)
+- Chrome headless ()
+- Rails 5+ app
+
+#### Install RelaxedJS
 
 >git clone https://github.com/RelaxedJS/ReLaXed.git .
 >npm install
 >sudo npm link --unsafe-perm=true
 
-Add this line to your application's Gemfile:
+Verify it's installed with: `relaxed --version`.
+
+#### Gemfile
 
 ```ruby
 gem 'rails_pdf'
@@ -25,13 +71,60 @@ And then execute:
 $ bundle
 ```
 
-Or install it yourself as:
-```bash
-$ gem install rails_pdf
+## Templates
+
+## Tips
+
+- if you want to add a page-break in document: `div(style="page-break-before:always")`
+- if you are using bootstrap and you want to use columns - include bootstrap.print.css and use styles from it.
+- if you are using Charts.js and you want to clear and readable text put in options: `devicePixelRatio: 3,`
+- you can define size of page using in SCSS:
 ```
+  // A4
+  $page-width: 8.27in;
+  $page-height: 11.69in;
+```  
+- if you want to add header/footer (sample: lib/generators/rails_pdf/templates/simple_invoice/invoice.pug.erb)
+```
+  h1 My document
+  p some paragraph
+
+  template#page-header
+    p I appear at the top of the page
+
+  template#page-footer
+    p I appear at the bottom of the page
+```
+- if you see an error, or something is not generated check TMP folder (e.g. /tmp) tmp/*.html file (see most recent files).
+- if you have problems with Charts.js you can add setTimeout(...) and execute chart creation in 200-300ms.
+
+## Development
+
+- open `test/dummy`
+- rake db:migrate
+- `rails s -b 0.0.0.0`
+- open `localhost:3000/report.pdf`
+- modify templates in app/pdf
+
+## Adding a new template
+
+- add new template in `lib/generators/rails_pdf/templates` and add folder with template (html,css,js)
+- you can use CSS/JS from `templates/shared` folder
+- edit `lib/generators/rails_pdf/rails_pdf_generator.rb` add new type of report
+- create screenshot of template and put in `docs` folder
+- update docs
+- create PR
+
+## TODO
+
+- more starter templates
+- add different charts
+- better way to include JS/CSS/images
 
 ## Contributing
-Contribution directions go here.
+
+You are welcome to contribute.
 
 ## License
+
 The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
