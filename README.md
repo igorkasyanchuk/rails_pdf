@@ -1,12 +1,14 @@
 # RailsPDF
 
-Reliable way to generate PDF files of any complexity. Support HTML/ERB/CSS/SCSS/PUG/Javascript/ChartsJS/Images/SVG/Custom Fonts/etc.
+**Reliable way to generate PDF files of any complexity.**
+
+Support HTML/ERB/CSS/SCSS/PUG/Javascript/ChartsJS/Images/SVG/Custom Fonts/etc.
 
 Basically, you can create any HTML/CSS/JS/Images page and save into PDF.
 
-Supports header, footer, page numbers, layouts.
+With header, footer, page numbers, layout support.
 
-Has few starter templates to create most popular reports easily.
+Has few starter templates to help with most popular reports. Just create some and re-edit it.
 
 ## Usage
 
@@ -14,9 +16,9 @@ You can use predefined starter templates (and you are welcome to contribute and 
 
 Use template starters:
 
-- rails g rails_pdf basic_invoice report
-- rails g rails_pdf chart1 report
-- rails g rails_pdf simple_invoice report
+- `rails g rails_pdf basic_invoice report`
+- `rails g rails_pdf chart1 report`
+- `rails g rails_pdf simple_invoice report`
 
 After you've generated PDF template, you can edit it in `app/pdf/.../file` file.
 
