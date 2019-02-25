@@ -147,6 +147,10 @@ $ bundle
 - add different charts
 - better way to include JS/CSS/images
 
+## Production
+
+Before deploy app to production please don't forget to install Relaxed.JS on it.
+
 ## Contributing
 
 You are welcome to contribute.
