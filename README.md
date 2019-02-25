@@ -25,11 +25,8 @@ Has few starter templates to help with most popular reports. Just create some an
       Template: <a href="https://github.com/igorkasyanchuk/rails_pdf/blob/master/lib/generators/rails_pdf/templates/basic_invoice/invoice.pug.erb">basic_invoice</a>
     </td>
     <td width="50%">
-      <a href="https://github.com/igorkasyanchuk/rails_pdf/blob/master/docs/report_3a.png">
-        <img src="https://github.com/igorkasyanchuk/rails_pdf/blob/master/docs/report_3a_thumb.png?raw=true" />
-      </a>      
-      <a href="https://github.com/igorkasyanchuk/rails_pdf/blob/master/docs/report_3b.png">
-        <img src="https://github.com/igorkasyanchuk/rails_pdf/blob/master/docs/report_3b_thumb.png?raw=true" />
+      <a href="https://github.com/igorkasyanchuk/rails_pdf/blob/master/docs/report_3c.png">
+        <img src="https://github.com/igorkasyanchuk/rails_pdf/blob/master/docs/report_3c_thumb.png?raw=true" />
       </a>      
       Template: <a href="https://github.com/igorkasyanchuk/rails_pdf/blob/master/lib/generators/rails_pdf/templates/chart1/chart.pug.erb">chart1</a>
     </td>
