@@ -8,6 +8,34 @@ With header, footer, page numbers, layout support.
 
 Has few starter templates to help with most popular reports. Just create some and re-edit it.
 
+## Template starters
+
+<table>
+  <tr align="center">
+    <td width="25%">
+      <a href="https://github.com/igorkasyanchuk/rails_pdf/blob/master/docs/report_1.png">
+        <img src="https://github.com/igorkasyanchuk/rails_pdf/blob/master/docs/report_1_thumb.png?raw=true" />
+      </a>      
+      Template: <a href="https://github.com/igorkasyanchuk/rails_pdf/blob/master/lib/generators/rails_pdf/templates/simple_invoice/invoice.pug.erb">simple_invoice</a>
+    </td>
+    <td width="25%">
+      <a href="https://github.com/igorkasyanchuk/rails_pdf/blob/master/docs/report_2.png">
+        <img src="https://github.com/igorkasyanchuk/rails_pdf/blob/master/docs/report_2_thumb.png?raw=true" />
+      </a>      
+      Template: <a href="https://github.com/igorkasyanchuk/rails_pdf/blob/master/lib/generators/rails_pdf/templates/basic_invoice/invoice.pug.erb">basic_invoice</a>
+    </td>
+    <td width="25%">
+      <a href="https://github.com/igorkasyanchuk/rails_pdf/blob/master/docs/report_3a.png">
+        <img src="https://github.com/igorkasyanchuk/rails_pdf/blob/master/docs/report_3a_thumb.png?raw=true" />
+      </a>      
+      <a href="https://github.com/igorkasyanchuk/rails_pdf/blob/master/docs/report_3b.png">
+        <img src="https://github.com/igorkasyanchuk/rails_pdf/blob/master/docs/report_3b_thumb.png?raw=true" />
+      </a>      
+      Template: <a href="https://github.com/igorkasyanchuk/rails_pdf/blob/master/lib/generators/rails_pdf/templates/chart1/chart.pug.erb">chart1</a>
+    </td>
+  </tr>
+</table>
+
 ## Usage
 
 You can use predefined starter templates (and you are welcome to contribute and create additional templates):
