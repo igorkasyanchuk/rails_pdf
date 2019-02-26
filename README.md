@@ -184,6 +184,7 @@ $ bundle
 - check support for older Rails (should work but check is needed)
 - check embedding in emails
 - maybe add ability to save webpage by url or HTML snippet to PDF, e.g. `RailsPDF.url("http://google.com").render_to_file("google.com.pdf")`
+- better gem logo :)
 
 ## Production
 
