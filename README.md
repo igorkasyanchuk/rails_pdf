@@ -64,6 +64,8 @@ This is how you can generate and send PDF files on the fly:
     end
   end
   
+  # or return file as attachment
+  
   def invoice
     RailsPDF.template("report2/invoice.pug.erb").render do |data|
       send_data(data, type: 'application/pdf', disposition: 'attachment', filename: 'report.pdf')
