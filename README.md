@@ -97,6 +97,18 @@ RailsPDF.template("report/chart.pug.erb").render_to_tempfile('report.pdf') # Tem
 
 With ERB files you can use App code (like models, etc). For example you can iterate over @users and output in PDF.
 
+JS/CSS/Images/
+
+```slim
+style
+  include:scss <%= Rails.root %>/app/pdf/<%= report %>/stylesheets/invoice.scss
+
+img(src="<%= Rails.root %>/app/pdf/shared/images/rails_pdf.png")
+
+script(src='<%= Rails.root %>/app/pdf/shared/javascripts/Chart.bundle.min.js')
+```
+
+
 ## Installation
 
 Installation of gem is very simple, it's just requires one additional step to install RelaxedJS tool which is using Chrome headless.
