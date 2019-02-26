@@ -1,8 +1,8 @@
 Description:
-    Explain the generator
+    Generate PDF template from starters files. Or create new blank template.
 
 Example:
-    rails generate rails_pdf template_name report_name
+    rails generate rails_pdf <template_name> <report_name>
 
     This will create:
         app/pdf/<report_name>/<files from report>

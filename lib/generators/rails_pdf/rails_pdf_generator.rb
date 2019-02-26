@@ -1,13 +1,13 @@
 class RailsPdfGenerator < Rails::Generators::NamedBase
   source_root File.expand_path('templates', __dir__)
 
-  TYPES = ["basic_invoice", "chart1", "simple_invoice"]
+  TYPES = ["basic_invoice", "chart1", "simple_invoice", "new"]
 
   def create_helper_file
     report = args[0]
 
     if report.nil?
-      puts "Please specify report template which you want to generate."
+      puts "Please specify report starter template which you want to generate or \"new\" to create blank template."
       puts "Available types: #{TYPES.join(', ')}"
       puts "rails g rails_pdf <type> <name of report>"
       puts "sample: rails g rails_pdf #{TYPES[0]} report"

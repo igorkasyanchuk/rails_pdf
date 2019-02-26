@@ -40,6 +40,7 @@ You can use predefined starter templates (and you are welcome to contribute and 
 
 Use template starters:
 
+- `rails g rails_pdf new invoice_report` (create blank template for PDF)
 - `rails g rails_pdf basic_invoice report`
 - `rails g rails_pdf chart1 report`
 - `rails g rails_pdf simple_invoice report`
