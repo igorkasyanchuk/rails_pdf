@@ -19,7 +19,7 @@ It's uses [ReLaXedJS](https://github.com/RelaxedJS/ReLaXed) tool, which is wrapp
 
 The idea of this gem is to separate logic of PDF creation from regular Rails views/controllers. Make it independent and easy to maintain.
 
-## Template starters
+## Template starters (build-it with generator)
 
 _If you want to contribute and add more templates - it' very easy to do. See #Templates section of this doc._
 
