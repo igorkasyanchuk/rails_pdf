@@ -1,6 +1,6 @@
 # RailsPDF
 
-Create PDF docs in Rails app with support of HTML/ERB/CSS/SCSS/PUG/Javascript/ChartsJS/Images/SVG/Custom Fonts/etc.
+Create PDF documents in Rails your app with support of HTML/ERB/CSS/SCSS/PUG/Javascript/ChartsJS/Images/SVG/Custom Fonts/etc.
 
 - Basically, you can create any HTML/CSS/JS/Images page and save into PDF.
 - Support for charts
