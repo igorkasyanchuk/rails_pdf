@@ -45,9 +45,9 @@ Use template starters:
 - `rails g rails_pdf chart1 report`
 - `rails g rails_pdf simple_invoice report`
 
-After you've generated PDF template, you can edit it in `app/pdf/.../file` file.
+After you've generated PDF template, you can edit it in `app/pdf/<folder>/<file>` file.
 
-You can use JS/CSS files from `app/pdf/shared` (which includes bootstrap 4, foundation 6, FoundAwesome5, Charts.js).
+You can use JS/CSS files from `app/pdf/shared` (which includes bootstrap 4, foundation 6, Found Awesome 5, Charts.js).
 
 This is how you can generate and send PDF files on the fly:
 
