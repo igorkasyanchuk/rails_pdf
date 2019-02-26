@@ -77,6 +77,10 @@ If you need to create PDF file and save to file on drive:
 
 ```ruby
 RailsPDF.template("report/chart.pug.erb").render_to_file('path/docs/report.pdf') # File
+
+# or for html template
+
+RailsPDF.template("sales/invoice.html.erb").render_to_file('path/docs/report.pdf') # File
 ```
 
 Same but save PDF into Temfile:
