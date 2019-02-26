@@ -7,6 +7,9 @@ Create PDF docs in Rails app with support of HTML/ERB/CSS/SCSS/PUG/Javascript/Ch
 - With header, footer, page numbers, layout support.
 - Generate files on the fly or save to disk/tempfiles.
 - Has few starter templates to help with most popular reports. Just create some and re-edit it.
+- Separates PDF templates from app views
+- ERB support
+- Doesn't insert any middleware into your app
 
 It's uses https://github.com/RelaxedJS/ReLaXed tool, which is wrapper arround chromium headless.
 
@@ -71,13 +74,13 @@ This is how you can generate and send PDF files on the fly:
 If you need to create PDF file and save to file on drive:
 
 ```ruby
-RailsPDF.template("report/chart.pug.erb").render_to_file('x.pdf')
+RailsPDF.template("report/chart.pug.erb").render_to_file('path/docs/report.pdf') # File
 ```
 
 Same but save PDF into Temfile:
 
 ```ruby
-RailsPDF.template("report/chart.pug.erb").render_to_tempfile('x.pdf')
+RailsPDF.template("report/chart.pug.erb").render_to_tempfile('report.pdf') # Tempfile
 ```
 
 With ERB files you can use App code (like models, etc). For example you can iterate over @users and output in PDF.
@@ -160,6 +163,8 @@ $ bundle
 - more starter templates
 - add different charts
 - better way to include JS/CSS/images
+- maybe we don't need to include all views
+- support non-rails apps
 
 ## Production
 
