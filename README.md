@@ -165,6 +165,9 @@ $ bundle
 - better way to include JS/CSS/images
 - maybe we don't need to include all views
 - support non-rails apps
+- specs
+- travis CI
+- codeclimate
 
 ## Production
 
