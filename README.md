@@ -3,9 +3,12 @@
 Create PDF docs in Rails app with support of HTML/ERB/CSS/SCSS/PUG/Javascript/ChartsJS/Images/SVG/Custom Fonts/etc.
 
 - Basically, you can create any HTML/CSS/JS/Images page and save into PDF.
+- Support for charts
 - With header, footer, page numbers, layout support.
 - Generate files on the fly or save to disk/tempfiles.
 - Has few starter templates to help with most popular reports. Just create some and re-edit it.
+
+It's uses https://github.com/RelaxedJS/ReLaXed tool, which is wrapper arround chromium headless.
 
 ## Template starters
 
