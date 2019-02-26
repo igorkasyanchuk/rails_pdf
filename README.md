@@ -1,6 +1,6 @@
 # RailsPDF
 
-Create PDF documents in Rails your app.
+Create PDF documents in Rails your app from HTML.
 
 **Features:**
 
@@ -171,6 +171,7 @@ $ bundle
 ## TODO
 
 - more starter templates
+  - add starter template with page numbers
 - add different charts
 - better way to include JS/CSS/images
 - maybe we don't need to include all views
@@ -178,6 +179,7 @@ $ bundle
 - specs
 - travis CI
 - codeclimate
+- check support for older Rails (should work but check is needed)
 
 ## Production
 
