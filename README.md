@@ -148,13 +148,13 @@ $ bundle
 - if you are using bootstrap and you want to use columns - include bootstrap.print.css and use styles from it.
 - if you are using Charts.js and you want to clear and readable text put in options: `devicePixelRatio: 3,`
 - you can define size of page using in SCSS:
-```
+```scss
   // A4
   $page-width: 8.27in;
   $page-height: 11.69in;
 ```  
 - if you want to add header/footer (sample: lib/generators/rails_pdf/templates/simple_invoice/invoice.pug.erb)
-```
+```pug
   h1 My document
   p some paragraph
 
