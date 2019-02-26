@@ -7,7 +7,7 @@ class HomeController < ApplicationController
     # RailsPDF.template("report/chart.pug.erb").render_to_tempfile('x.pdf')
     #RailsPDF.template("report/chart.pug.erb").render do |data|
     #RailsPDF.template("report1/invoice.pug.erb").render do |data|
-    RailsPDF.template("report2/invoice.pug.erb").render do |data|
+    RailsPDF.template("index/index.pug.erb").render do |data|
       send_data(data, type: 'application/pdf', disposition: 'inline', filename: 'report.pdf')
     end
   end

@@ -1,0 +1,53 @@
+link(href="<%= Rails.root %>/app/pdf/shared/stylesheets/font-awesome/style.css" rel="stylesheet")
+link(href="<%= Rails.root %>/app/pdf/shared/stylesheets/bootstrap/bootstrap.min.css" rel="stylesheet")
+link(href="<%= Rails.root %>/app/pdf/shared/stylesheets/bootstrap/bootstrap.print.css" rel="stylesheet")
+link(href="<%= Rails.root %>/app/pdf/index/stylesheets/template.css" rel="stylesheet")
+
+.container
+  .row
+    .col-md-12
+      h1 Sales Report 2019
+      p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam velit urna, tincidunt vel mauris sit amet, dictum fermentum diam. Integer dignissim lorem ante, eget ultrices libero tincidunt at. Integer ut elit volutpat mauris suscipit tempus eget a ipsum. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam mattis nisl vel tellus bibendum, eu vulputate ligula semper. Nulla varius nulla sit amet nisl rhoncus dapibus.
+      table.table.table-bordered
+        thead
+          tr
+            th SKU
+            th Title
+            th East
+            th West
+            th North
+            th South
+            th Estimated $
+        tbody
+          <% 200.times do %>
+            tr
+              td <%= link_to rand(1_000_000).to_s.rjust(8, "0"), '#' %>
+              td <%= ['Phone', 'Computer', 'Laptop', 'PC', 'Beer'].sample %>
+              td.text-success <%= rand(100) %>
+              td.text-success <%= rand(100) %>
+              td.text-danger <%= rand(100) %>
+              td.text-danger <%= rand(100) %>
+              td <%= number_to_currency rand(10000), precision: 0 %>
+          <% end %>
+
+
+template#page-footer
+  style(type='text/css').
+    .pdfheader {
+      font-size: 9px;
+      color: #555;
+      font-family: Helvetica;
+      font-weight: normal;
+      width: 1000px;
+      border-top: 1px solid #ccc;
+      margin-left: 10%;
+      margin-right: 10%;
+      padding-top: 1mm;
+      margin-bottom: -1mm;
+      text-align: center;
+    }
+    .pageNumber {
+      color: red;
+    }
+  
+  .pdfheader Page #[span.pageNumber] / #[span.totalPages]
