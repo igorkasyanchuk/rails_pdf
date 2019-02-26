@@ -44,6 +44,20 @@ _If you want to contribute and add more templates - it' very easy to do. See #Te
       Template: <a href="https://github.com/igorkasyanchuk/rails_pdf/blob/master/lib/generators/rails_pdf/templates/chart1/chart.pug.erb">chart1</a>
     </td>
   </tr>
+  <tr>
+    <td width="25%">
+      <a href="https://github.com/igorkasyanchuk/rails_pdf/blob/master/docs/report_4.png">
+        <img src="https://github.com/igorkasyanchuk/rails_pdf/blob/master/docs/report_4_thumb.png?raw=true" />
+      </a>      
+      Template: <a href="https://github.com/igorkasyanchuk/rails_pdf/blob/master/lib/generators/rails_pdf/templates/products/index.pug.erb">products</a>
+    </td>    
+    <td width="25%">
+    </td>
+    <td width="25%">
+    </td>
+    <td width="25%">
+    </td>
+  </tr>
 </table>
 
 ## Usage
