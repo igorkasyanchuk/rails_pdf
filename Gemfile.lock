@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    rails_pdf (0.1.2)
+    rails_pdf (0.1.3)
       better_tempfile
       rails (>= 5.0.0)
 
