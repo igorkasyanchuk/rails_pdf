@@ -99,7 +99,7 @@ With ERB files you can use App code (like models, etc). For example you can iter
 
 === JS/CSS/Images
 
-Basically you need to put an absolute path to asset.
+Basically you need to put an absolute path to asset or remote URL (for example on CDN. but local files works faster).
 
 ```slim
 style
