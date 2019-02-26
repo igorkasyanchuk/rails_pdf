@@ -101,7 +101,7 @@ JS/CSS/Images/
 
 ```slim
 style
-  include:scss <%= Rails.root %>/app/pdf/<%= report %>/stylesheets/invoice.scss
+  include:scss <%= Rails.root %>/app/pdf/report/stylesheets/invoice.scss
 
 img(src="<%= Rails.root %>/app/pdf/shared/images/rails_pdf.png")
 
