@@ -1,11 +1,11 @@
 # RailsPDF
 
-Create PDF documents in Rails your app from HTML.
+Create PDF documents in Rails your app from HTML, CSS and JS.
 
 **Features:**
 
 - Basically, you can create any HTML/CSS/JS/Images page and save into PDF
-- Generate files on the fly or save to disk/tempfiles
+- Generate PDF on the fly or save to disk
 - With header, footer, page numbers, layout support
 - Has few starter templates to help with most popular reports. Just create some and re-edit it
 - Support for Charts libraries
@@ -15,7 +15,9 @@ Create PDF documents in Rails your app from HTML.
 - Doesn't insert any middleware into your app
 - Pub format is similar to slim
 
-It's uses https://github.com/RelaxedJS/ReLaXed tool, which is wrapper arround chromium headless.
+It's uses [ReLaXedJS](https://github.com/RelaxedJS/ReLaXed) tool, which is wrapper arround chromium headless.
+
+The idea of this gem is to separate logic of PDF creation from regular Rails views/controllers. Make it independent and easy to maintain.
 
 ## Template starters
 
@@ -180,6 +182,7 @@ $ bundle
 - travis CI
 - codeclimate
 - check support for older Rails (should work but check is needed)
+- check embedding in emails
 
 ## Production
 
