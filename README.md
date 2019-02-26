@@ -51,21 +51,31 @@ You can use JS/CSS files from `app/pdf/shared` (which includes bootstrap 4, foun
 
 This is how you can generate and send PDF files on the fly:
 
-```
+```ruby
   def report
     RailsPDF.template("report2/invoice.pug.erb").render do |data|
       send_data(data, type: 'application/pdf', disposition: 'inline', filename: 'report.pdf')
     end
   end
+  
+  def invoice
+    RailsPDF.template("report2/invoice.pug.erb").render do |data|
+      send_data(data, type: 'application/pdf', disposition: 'attachment', filename: 'report.pdf')
+    end
+  end  
 ```
 
 If you need to create PDF file and save to file on drive:
 
-`RailsPDF.template("report/chart.pug.erb").render_to_file('x.pdf')`
+```ruby
+RailsPDF.template("report/chart.pug.erb").render_to_file('x.pdf')
+```
 
 Same but save PDF into Temfile:
 
-`RailsPDF.template("report/chart.pug.erb").render_to_tempfile('x.pdf')`
+```ruby
+RailsPDF.template("report/chart.pug.erb").render_to_tempfile('x.pdf')
+```
 
 With ERB files you can use App code (like models, etc). For example you can iterate over @users and output in PDF.
 
