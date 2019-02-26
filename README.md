@@ -97,7 +97,9 @@ RailsPDF.template("report/chart.pug.erb").render_to_tempfile('report.pdf') # Tem
 
 With ERB files you can use App code (like models, etc). For example you can iterate over @users and output in PDF.
 
-JS/CSS/Images/
+=== JS/CSS/Images
+
+Basically you need to put an absolute path to asset.
 
 ```slim
 style
