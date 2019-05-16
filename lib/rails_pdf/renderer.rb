@@ -43,8 +43,8 @@ module RailsPDF
 
         yield(data)
       ensure
-        input&.close!
-        output&.close!
+        input.try(:close!)
+        output.try(:close!)
       end
     end
 
