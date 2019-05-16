@@ -13,7 +13,9 @@ module RailsPDF
     end
 
     def render(&block)
-      content = ApplicationController.render(file: @file, layout: @layout)
+      controller = ActionController::Base.new
+      view = ActionView::Base.new(ActionController::Base.view_paths, {}, controller)
+      content = view.render(file: @file, layout: @layout)
 
       logger.debug "RailsPDF ====="
       logger.debug "RailsPDF content:\n#{content}"
