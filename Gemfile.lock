@@ -1,9 +1,9 @@
 PATH
   remote: .
   specs:
-    rails_pdf (0.1.4)
+    rails_pdf (0.2.0)
       better_tempfile
-      rails (>= 5.0.0)
+      rails (>= 4.2.0)
 
 GEM
   remote: https://rubygems.org/
