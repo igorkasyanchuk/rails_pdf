@@ -222,6 +222,10 @@ Before deploy app to production please don't forget to install Relaxed.JS on it.
 
 You are welcome to contribute.
 
+## Contributors
+
+* https://github.com/gambala
+
 ## License
 
 The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
