@@ -13,23 +13,25 @@ module RailsPDF
     end
 
     def render(&block)
-      content = ApplicationController.render(file: @file, layout: @layout)
+      controller = ActionController::Base.new
+      view = ActionView::Base.new(ActionController::Base.view_paths, {}, controller)
+      content = view.render(file: @file, layout: @layout)
 
       logger.debug "RailsPDF ====="
       logger.debug "RailsPDF content:\n#{content}"
       logger.debug "RailsPDF ====="
-  
+
       begin
         input  = BetterTempfile.new("in.pug")
         output = BetterTempfile.new("out.pdf")
-  
+
         input.write(content)
         input.flush
-  
+
         command = "#{RailsPDF.relaxed} #{input.path.to_s} #{output.path.to_s} --basedir / --build-once"
-  
+
         logger.debug "RailsPDF ===== #{command}"
-  
+
         err = Open3.popen3(*command) do |_stdin, _stdout, stderr|
           logger.debug _stdout.read
           logger.debug '------'
@@ -43,8 +45,8 @@ module RailsPDF
 
         yield(data)
       ensure
-        input&.close!
-        output&.close!
+        input.try(:close!)
+        output.try(:close!)
       end
     end
 
