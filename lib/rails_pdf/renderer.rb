@@ -12,10 +12,17 @@ module RailsPDF
       self
     end
 
+    def assign(locals)
+      @locals = locals
+      self
+    end
+
     def render(&block)
       controller = ActionController::Base.new
       view = ActionView::Base.new(ActionController::Base.view_paths, {}, controller)
-      content = view.render(file: @file, layout: @layout)
+      params = { file: @file, layout: @layout }
+      params = params.merge(locals: @locals) if @locals.present?
+      content = view.render(params)
 
       logger.debug "RailsPDF ====="
       logger.debug "RailsPDF content:\n#{content}"
