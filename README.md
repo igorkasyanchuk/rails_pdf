@@ -28,19 +28,19 @@ _If you want to contribute and add more templates - it' very easy to do. See #Te
     <td width="25%">
       <a href="https://github.com/igorkasyanchuk/rails_pdf/blob/master/docs/report_1.png">
         <img src="https://github.com/igorkasyanchuk/rails_pdf/blob/master/docs/report_1_thumb.png?raw=true" />
-      </a>      
+      </a>
       Template: <a href="https://github.com/igorkasyanchuk/rails_pdf/blob/master/lib/generators/rails_pdf/templates/simple_invoice/invoice.pug.erb">simple_invoice</a>
     </td>
     <td width="25%">
       <a href="https://github.com/igorkasyanchuk/rails_pdf/blob/master/docs/report_2.png">
         <img src="https://github.com/igorkasyanchuk/rails_pdf/blob/master/docs/report_2_thumb.png?raw=true" />
-      </a>      
+      </a>
       Template: <a href="https://github.com/igorkasyanchuk/rails_pdf/blob/master/lib/generators/rails_pdf/templates/basic_invoice/invoice.pug.erb">basic_invoice</a>
     </td>
     <td width="50%">
       <a href="https://github.com/igorkasyanchuk/rails_pdf/blob/master/docs/report_3c.png">
         <img src="https://github.com/igorkasyanchuk/rails_pdf/blob/master/docs/report_3c_thumb.png?raw=true" />
-      </a>      
+      </a>
       Template: <a href="https://github.com/igorkasyanchuk/rails_pdf/blob/master/lib/generators/rails_pdf/templates/chart1/chart.pug.erb">chart1</a>
     </td>
   </tr>
@@ -48,9 +48,9 @@ _If you want to contribute and add more templates - it' very easy to do. See #Te
     <td width="25%">
       <a href="https://github.com/igorkasyanchuk/rails_pdf/blob/master/docs/report_4.png">
         <img src="https://github.com/igorkasyanchuk/rails_pdf/blob/master/docs/report_4_thumb.png?raw=true" />
-      </a>      
+      </a>
       Template: <a href="https://github.com/igorkasyanchuk/rails_pdf/blob/master/lib/generators/rails_pdf/templates/products/index.pug.erb">products</a>
-    </td>    
+    </td>
     <td width="25%">
     </td>
     <td width="25%">
@@ -83,14 +83,14 @@ This is how you can generate and send PDF files on the fly:
       send_data(data, type: 'application/pdf', disposition: 'inline', filename: 'report.pdf')
     end
   end
-  
+
   # or return file as attachment
-  
+
   def invoice
     RailsPDF.template("report2/invoice.pug.erb").render do |data|
       send_data(data, type: 'application/pdf', disposition: 'attachment', filename: 'report.pdf')
     end
-  end  
+  end
 ```
 
 If you need to create PDF file and save to file on drive:
@@ -166,7 +166,7 @@ $ bundle
   // A4
   $page-width: 8.27in;
   $page-height: 11.69in;
-```  
+```
 - if you want to add header/footer (sample: lib/generators/rails_pdf/templates/simple_invoice/invoice.pug.erb)
 ```pug
   h1 My document
@@ -184,8 +184,8 @@ $ bundle
 ## Development
 
 - open `test/dummy`
-- rake db:migrate
-- `rails s -b 0.0.0.0`
+- `bundle exec rake db:migrate`
+- `bundle exec rails s -b 0.0.0.0`
 - open `localhost:3000/report.pdf`
 - modify templates in app/pdf
 
