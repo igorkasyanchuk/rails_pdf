@@ -184,8 +184,8 @@ $ bundle
 ## Development
 
 - open `test/dummy`
-- rake db:migrate
-- `rails s -b 0.0.0.0`
+- `bundle exec rake db:migrate`
+- `bundle exec rails s -b 0.0.0.0`
 - open `localhost:3000/report.pdf`
 - modify templates in app/pdf
 
