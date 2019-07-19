@@ -137,9 +137,11 @@ Installation of gem is very simple, it's just requires one additional step to in
 
 #### Install RelaxedJS
 
->git clone https://github.com/RelaxedJS/ReLaXed.git .
->npm install
->sudo npm link --unsafe-perm=true
+```bash
+$ git clone https://github.com/RelaxedJS/ReLaXed.git .
+$ npm install
+$ sudo npm link --unsafe-perm=true
+```
 
 Verify it's installed with: `relaxed --version`.
 
