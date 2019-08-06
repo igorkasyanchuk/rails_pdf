@@ -12,7 +12,7 @@ module RailsPDF
       self
     end
 
-    def assign(locals)
+    def locals(locals)
       @locals = locals
       self
     end

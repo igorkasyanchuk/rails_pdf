@@ -14,6 +14,7 @@ Create PDF documents in Rails your app from HTML, CSS and JS.
 - Separates PDF templates from app views
 - Doesn't insert any middleware into your app
 - Pub format is similar to slim
+- Pass locals to the view
 
 It's uses [ReLaXedJS](https://github.com/RelaxedJS/ReLaXed) tool, which is wrapper arround chromium headless.
 
@@ -89,6 +90,16 @@ This is how you can generate and send PDF files on the fly:
   def invoice
     RailsPDF.template("report2/invoice.pug.erb").render do |data|
       send_data(data, type: 'application/pdf', disposition: 'attachment', filename: 'report.pdf')
+    end
+  end
+
+  # sample with locals
+  # works similar how regular partials works
+
+  def report
+    @invoice = Invoice.find(params[:id])
+    RailsPDF.template("report2/invoice.pug.erb").locals(invoice: @invoice).render do |data|
+      send_data(data, type: 'application/pdf', disposition: 'inline', filename: 'report.pdf')
     end
   end
 ```
