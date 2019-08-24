@@ -25,6 +25,7 @@ module RailsPDF
       content = view.render(params)
 
       logger.debug "RailsPDF ====="
+      logger.debug "RailsPDF filename: #{@file.basename(path)}"
       logger.debug "RailsPDF content:\n#{content}"
       logger.debug "RailsPDF ====="
 
