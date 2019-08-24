@@ -29,7 +29,7 @@ module RailsPDF
       logger.debug "RailsPDF ====="
 
       begin
-        input  = BetterTempfile.new("in.pug")
+        input  = BetterTempfile.new("in.html")
         output = BetterTempfile.new("out.pdf")
 
         input.write(content)
