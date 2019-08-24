@@ -25,12 +25,12 @@ module RailsPDF
       content = view.render(params)
 
       logger.debug "RailsPDF ====="
-      logger.debug "RailsPDF filename: #{@file.basename(path)}"
+      logger.debug "RailsPDF filename: #{File.basename(@file)}"
       logger.debug "RailsPDF content:\n#{content}"
       logger.debug "RailsPDF ====="
 
       begin
-        input  = BetterTempfile.new("in-#{@file.basename(path)}")
+        input  = BetterTempfile.new("in-#{File.basename(@file)}")
         output = BetterTempfile.new("out.pdf")
 
         input.write(content)
