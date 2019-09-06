@@ -36,7 +36,7 @@ module RailsPDF
         input.write(content)
         input.flush
 
-        command = "#{RailsPDF.relaxed} #{input.path.to_s} #{output.path.to_s} --basedir / --build-once"
+        command = "#{RailsPDF.relaxed} #{input.path.to_s} #{output.path.to_s} --basedir / --build-once --no-sandbox"
 
         logger.debug "RailsPDF ===== #{command}"
 
