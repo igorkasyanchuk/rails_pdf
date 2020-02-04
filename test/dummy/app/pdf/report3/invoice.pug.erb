@@ -1,0 +1,8 @@
+style
+  include:scss <%= Rails.root %>/app/pdf/report3/stylesheets/invoice.scss
+
+body
+  header.clearfix
+    #logo
+      img(src="<%= ActiveStorage::Blob.service.send(:path_for, project.logo.key) %>")
+    h1 <%= project.title %>

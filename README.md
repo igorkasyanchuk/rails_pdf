@@ -15,6 +15,7 @@ Create PDF documents in Rails your app from HTML, CSS and JS.
 - Doesn't insert any middleware into your app
 - Pub format is similar to slim
 - Pass locals to the view
+- Works with ActiveStorage
 
 It's uses [ReLaXedJS](https://github.com/RelaxedJS/ReLaXed) tool, which is wrapper arround chromium headless.
 
@@ -134,6 +135,32 @@ img(src="<%= Rails.root %>/app/pdf/shared/images/rails_pdf.png")
 
 script(src='<%= Rails.root %>/app/pdf/shared/javascripts/Chart.bundle.min.js')
 ```
+
+## ActiceStorage integration
+
+You need to specify path to file on disk (or URL to the image if stored in the cloud).
+
+```ruby
+# model
+class Project < ApplicationRecord
+  has_one_attached :logo
+end
+
+# simple controller
+def download_project
+  RailsPDF.template("report3/invoice.pug.erb").locals(project: Project.first).render do |data|
+    send_data(data, type: 'application/pdf', disposition: 'inline', filename: 'report.pdf')
+  end
+end
+```
+
+```slim
+body
+  header.clearfix
+    #logo
+      img(src="<%= ActiveStorage::Blob.service.send(:path_for, project.logo.key) %>")
+    h1 <%= project.title %>
+```    
 
 
 ## Installation

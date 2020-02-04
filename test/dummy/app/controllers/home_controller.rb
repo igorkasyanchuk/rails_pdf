@@ -11,4 +11,10 @@ class HomeController < ApplicationController
       send_data(data, type: 'application/pdf', disposition: 'inline', filename: 'report.pdf')
     end
   end
+
+  def download_project
+    RailsPDF.template("report3/invoice.pug.erb").locals(project: Project.first).render do |data|
+      send_data(data, type: 'application/pdf', disposition: 'inline', filename: 'report.pdf')
+    end
+  end
 end
