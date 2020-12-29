@@ -136,7 +136,7 @@ img(src="<%= Rails.root %>/app/pdf/shared/images/rails_pdf.png")
 script(src='<%= Rails.root %>/app/pdf/shared/javascripts/Chart.bundle.min.js')
 ```
 
-## ActiceStorage integration
+## ActiveStorage integration
 
 You need to specify path to file on disk (or URL to the image if stored in the cloud).
 
