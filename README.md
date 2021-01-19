@@ -1,5 +1,7 @@
 # Rails PDF
 
+[![RailsJazz](https://github.com/igorkasyanchuk/rails_time_travel/blob/main/docs/my_other.svg?raw=true)](https://www.railsjazz.com)
+
 Create PDF documents in Rails your app from HTML, CSS and JS.
 
 **Features:**
