@@ -264,6 +264,9 @@ Before deploy app to production please don't forget to install Relaxed.JS on it.
 
 ## Contributing
 
+[<img src="https://opensource-heroes.com/svg/embed/igorkasyanchuk/rails_pdf"
+/>](https://opensource-heroes.com/r/igorkasyanchuk/rails_pdf)
+
 You are welcome to contribute.
 
 ## Contributors
