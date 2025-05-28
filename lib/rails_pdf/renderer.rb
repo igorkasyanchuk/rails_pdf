@@ -25,17 +25,18 @@ module RailsPDF
       content = view.render(params)
 
       logger.debug "RailsPDF ====="
+      logger.debug "RailsPDF filename: #{File.basename(@file)}"
       logger.debug "RailsPDF content:\n#{content}"
       logger.debug "RailsPDF ====="
 
       begin
-        input  = BetterTempfile.new("in.pug")
+        input  = BetterTempfile.new("in-#{File.basename(@file, ".erb")}")
         output = BetterTempfile.new("out.pdf")
 
         input.write(content)
         input.flush
 
-        command = "#{RailsPDF.relaxed} #{input.path.to_s} #{output.path.to_s} --basedir / --build-once"
+        command = "#{RailsPDF.relaxed} #{input.path.to_s} #{output.path.to_s} --basedir / --build-once --no-sandbox"
 
         logger.debug "RailsPDF ===== #{command}"
 
